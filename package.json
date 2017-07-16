@@ -6,6 +6,6 @@
   "license": "MIT",
   "dependencies": {
     "codemirror": "^5.27.4",
-    "markdown": "^0.5.0"
+    "showdown": "^1.7.1"
   }
 }
