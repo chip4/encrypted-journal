@@ -5,6 +5,7 @@
   "author": "Chip <chip4@users.noreply.github.com>",
   "license": "MIT",
   "dependencies": {
+    "codemirror": "^5.27.4",
     "simplemde": "^1.11.2"
   }
 }
