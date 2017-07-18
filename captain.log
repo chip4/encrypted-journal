@@ -1,0 +1,10 @@
+2017-7-17 45min
+Using styled-elements for basic layout. May be able to get pretty far with it for a static layout site.
+
+2017-7-16
+Markdown being edited in CodeMirror is rendered to html by Showdown when the editor saves.
+
+Next Steps:
+* Publish markdown content to IPFS
+  * Encryption optional
+* Publish this editing app to IPFS

@@ -1,4 +1,18 @@
-console.log("CodeMirror",CodeMirror);
+console.log('styled', styled);
+
+const div = styled.default.div``;
+
+const flex = styled.default.div`
+  display: flex;
+  ${props => props.flexDirection ? `flex-direction: ${props.flexDirection};` : 'column' }
+`;
+
+document.getElementById("app").appendChild(
+  flex(
+    div({id: 'editor'}),
+    div({id: 'preview', flexDirection: 'row'})
+  )
+);
 
 var converter = new showdown.Converter();
 
