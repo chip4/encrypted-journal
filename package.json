@@ -4,9 +4,16 @@
   "main": "index.js",
   "author": "Chip <chip4@users.noreply.github.com>",
   "license": "MIT",
+  "scripts": {
+    "start": "node ./node_modules/.bin/ipscend preview",
+    "publish": "node ./node_modules/.bin/ipscend publish"
+  },
   "dependencies": {
     "codemirror": "^5.27.4",
     "showdown": "^1.7.1",
     "styled-elements": "^1.0.14"
+  },
+  "devDependencies": {
+    "ipscend": "^0.4.3"
   }
 }

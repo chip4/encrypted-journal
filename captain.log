@@ -1,3 +1,6 @@
+2017-7-19 ~1.5hr? Mostly browsing
+Found Ipscend through diasdavid's GitHub page. Will work perfectly for preview/publishing my app easily. Had to use a patch from PR#86 to get publish to return the correct url. Other than that works great, added npm scripts for start and publish that use locally installed ipscend underneath.
+
 2017-7-17 45min
 Using styled-elements for basic layout. May be able to get pretty far with it for a static layout site.
 
