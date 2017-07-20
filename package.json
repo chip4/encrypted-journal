@@ -1,6 +1,6 @@
 {
   "name": "ipfs-journal",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "main": "index.js",
   "author": "Chip <chip4@users.noreply.github.com>",
   "license": "MIT",
