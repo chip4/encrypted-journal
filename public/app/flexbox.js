@@ -1,5 +1,5 @@
 import styled from './globals/styled-elements.js'
-export default styled.default.div`
+export default styled.div`
   display: flex;
   ${props => (props.alignContent ? `align-content: ${props.alignContent};` : '')}
   ${props => (props.alignSelf ? `align-self: ${props.alignSelf};` : '')}

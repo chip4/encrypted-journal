@@ -9,7 +9,7 @@ function onChange(instance) {
   document.getElementById("preview").innerHTML = converter.makeHtml(instance.doc.getValue());
 };
 
-const div = styled.default.div``;
+const div = styled.div``;
 
 document.getElementById("app").appendChild(
   flex(
