@@ -15,7 +15,6 @@ The encryption key is then stored locally and used later on retrieve.
 All static assets to be hosted on ipfs. Using [ipscend](https://github.com/diasdavid/ipscend) to ease the process.
 
 ## TODO
-* refactor to use es6 modules
 * keep list of all posted entries
 * publish markdown entries to ipfs using js-ipfs in the browser
 * encryption of notes using one-time keys
