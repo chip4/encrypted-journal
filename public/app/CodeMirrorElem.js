@@ -1,5 +1,6 @@
 import yo from './globals/yo-yo.js';
 import CodeMirror from './globals/CodeMirror.js';
+import debounce from '../vendor/lodash-es/debounce.js'
 
 const defaultContents = `
 # h1
@@ -20,16 +21,18 @@ function(){
 }
 \`\`\`
 `;
-const yoDiv = yo`<div onload=${initCodeMirror}></div>`;
-function initCodeMirror(){
-  CodeMirror(yoDiv, {
-    mode: 'markdown',
-    keyMap: 'vim',
-    value: defaultContents,
-  });
-}
 
-export default ({onSave}) => {
+export default ({onSave, onChange}) => {
+  const yoDiv = yo`<div onload=${initCodeMirror}></div>`;
+  function initCodeMirror(){
+    const controller = CodeMirror(yoDiv, {
+      mode: 'markdown',
+      keyMap: 'vim',
+      value: defaultContents,
+    });
+    console.log("controller",controller);
+    controller.on('change', debounce(onChange, 100));
+  }
   CodeMirror.commands.save = onSave;
   return yoDiv;
 };
