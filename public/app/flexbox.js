@@ -1,3 +1,4 @@
+import styled from './globals/styled-elements.js'
 export default styled.default.div`
   display: flex;
   ${props => (props.alignContent ? `align-content: ${props.alignContent};` : '')}
