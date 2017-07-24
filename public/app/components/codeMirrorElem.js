@@ -3,7 +3,7 @@ import CodeMirror from '../externals/CodeMirror.js';
 import debounce from '/vendor/lodash-es/debounce.js';
 import styled from '../externals/styled-elements.js';
 
-export default ({onSave, onChange, defaultEditorContents}) => {
+export default ({onSave, onChange, value}) => {
   const yoDiv = styled(yo`<div onload=${initCodeMirror}></div>`)`
     width: 100%;
   `;
@@ -11,7 +11,7 @@ export default ({onSave, onChange, defaultEditorContents}) => {
     const controller = CodeMirror(yoDiv, {
       mode: 'markdown',
       keyMap: 'vim',
-      value: defaultEditorContents,
+      value,
     });
     controller.on('change', debounce(onChange, 100));
   }
