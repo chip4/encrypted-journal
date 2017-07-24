@@ -9,6 +9,8 @@
     "publish": "node ./node_modules/.bin/ipscend publish"
   },
   "dependencies": {
+    "choo": "^5.6.2",
+    "choo-log": "^7.1.0",
     "codemirror": "^5.27.4",
     "lodash-es": "^4.17.4",
     "showdown": "^1.7.1",

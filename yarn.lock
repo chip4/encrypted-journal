@@ -172,7 +172,7 @@ bcrypt-pbkdf@^1.0.0:
   dependencies:
     tweetnacl "^0.14.3"
 
-bel@^4.0.0:
+bel@^4.0.0, bel@^4.5.1:
   version "4.6.0"
   resolved "https://registry.yarnpkg.com/bel/-/bel-4.6.0.tgz#3ade16e236ab2204d8d1c66eac4bd573793ac999"
   dependencies:
@@ -438,6 +438,28 @@ chalk@^1.1.1:
     has-ansi "^2.0.0"
     strip-ansi "^3.0.0"
     supports-color "^2.0.0"
+
+choo-log@^7.1.0:
+  version "7.1.0"
+  resolved "https://registry.yarnpkg.com/choo-log/-/choo-log-7.1.0.tgz#e05188705478651e87f3b6e3660a71c359279cf9"
+  dependencies:
+    nanologger "^1.2.0"
+    on-idle "^3.0.2"
+    on-performance "^1.0.0"
+
+choo@^5.6.2:
+  version "5.6.2"
+  resolved "https://registry.yarnpkg.com/choo/-/choo-5.6.2.tgz#5969fa0a2c8dd0d7b4bf6df7bd447d1e59862fe0"
+  dependencies:
+    bel "^4.5.1"
+    document-ready "^2.0.1"
+    nanobus "^3.1.0"
+    nanohistory "^1.0.0"
+    nanohref "^1.0.0"
+    nanomorph "^4.0.0"
+    nanomount "^1.0.0"
+    nanoraf "^3.0.0"
+    nanorouter "^2.0.0"
 
 chownr@^1.0.1:
   version "1.0.1"
@@ -718,6 +740,10 @@ diffie-hellman@^5.0.0:
     bn.js "^4.1.0"
     miller-rabin "^4.0.0"
     randombytes "^2.0.0"
+
+document-ready@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/document-ready/-/document-ready-2.0.1.tgz#3e3bf31d3235b94e232e7b2c5fa1a634e873bae4"
 
 dom-walk@^0.1.0:
   version "0.1.1"
@@ -1797,6 +1823,50 @@ nan@^2.2.1, nan@^2.5.1:
   version "2.6.2"
   resolved "https://registry.yarnpkg.com/nan/-/nan-2.6.2.tgz#e4ff34e6c95fdfb5aecc08de6596f43605a7db45"
 
+nanobus@^3.1.0:
+  version "3.3.0"
+  resolved "https://registry.yarnpkg.com/nanobus/-/nanobus-3.3.0.tgz#bce5d5d435a5362c7dad7f9e90cd21959589be86"
+  dependencies:
+    nanotiming "^1.0.1"
+
+nanohistory@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/nanohistory/-/nanohistory-1.0.0.tgz#65a3d29bc5f40f6305ec67d120b8be38e95719e8"
+
+nanohref@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/nanohref/-/nanohref-1.0.0.tgz#12ed5ee990d98111344a04d81650d167ad264421"
+
+nanologger@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/nanologger/-/nanologger-1.2.0.tgz#9483200b725884e28202f82eafb423a29b13ae19"
+  dependencies:
+    xtend "^4.0.1"
+
+nanomorph@^4.0.0:
+  version "4.0.5"
+  resolved "https://registry.yarnpkg.com/nanomorph/-/nanomorph-4.0.5.tgz#7e27cc5e28a05df0c278f53ba430f253f3ac3fac"
+
+nanomount@^1.0.0:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/nanomount/-/nanomount-1.0.1.tgz#da6e4c446f046a20d5a87bfc3a6152be29890d35"
+  dependencies:
+    nanomorph "^4.0.0"
+
+nanoraf@^3.0.0:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/nanoraf/-/nanoraf-3.0.1.tgz#ab9fb9c257b9adcc71d82982cb58d8fa3503764a"
+
+nanorouter@^2.0.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/nanorouter/-/nanorouter-2.1.0.tgz#4fcaf96203a00898da89188b1bff5a8fc06ef4ff"
+  dependencies:
+    wayfarer "^6.5.0"
+
+nanotiming@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/nanotiming/-/nanotiming-1.0.1.tgz#13e7a2e2767967974fedfff071edd39327f44ec3"
+
 natives@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/natives/-/natives-1.1.0.tgz#e9ff841418a6b2ec7a495e939984f78f163e6e31"
@@ -1903,11 +1973,21 @@ object-keys@~0.4.0:
   version "0.4.0"
   resolved "https://registry.yarnpkg.com/object-keys/-/object-keys-0.4.0.tgz#28a6aae7428dd2c3a92f3d95f21335dd204e0336"
 
+on-idle@^3.0.0, on-idle@^3.0.2:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/on-idle/-/on-idle-3.1.0.tgz#5154464b0d52bb77a8bda517016c7badd9c6ad5a"
+
 on-load@^3.2.0:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/on-load/-/on-load-3.2.0.tgz#dd3145d3a5c2faa5666920d1df674b69f0c2f66f"
   dependencies:
     global "^4.3.0"
+
+on-performance@^1.0.0:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/on-performance/-/on-performance-1.0.1.tgz#e11724120e65a575628229a3f789b8ae3dd3e167"
+  dependencies:
+    on-idle "^3.0.0"
 
 once@^1.3.0, once@^1.3.1, once@^1.4.0:
   version "1.4.0"
@@ -2963,6 +3043,12 @@ vm-browserify@~0.0.1:
   resolved "https://registry.yarnpkg.com/vm-browserify/-/vm-browserify-0.0.4.tgz#5d7ea45bbef9e4a6ff65f95438e0a87c357d5a73"
   dependencies:
     indexof "0.0.1"
+
+wayfarer@^6.5.0:
+  version "6.6.1"
+  resolved "https://registry.yarnpkg.com/wayfarer/-/wayfarer-6.6.1.tgz#43acd67207b89b8def809236f7c5b8a57c62a482"
+  dependencies:
+    xtend "^4.0.1"
 
 webcrypto-core@^0.1.16:
   version "0.1.16"

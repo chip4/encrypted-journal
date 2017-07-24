@@ -1,7 +1,7 @@
-import yo from './globals/yo-yo.js';
-import CodeMirror from './globals/CodeMirror.js';
-import debounce from '../vendor/lodash-es/debounce.js';
-import styled from './globals/styled-elements.js';
+import yo from '../externals/yo-yo.js';
+import CodeMirror from '../externals/CodeMirror.js';
+import debounce from '/vendor/lodash-es/debounce.js';
+import styled from '../externals/styled-elements.js';
 
 const defaultContents = `
 # h1
