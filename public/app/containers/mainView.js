@@ -8,39 +8,56 @@ const prefix = 'editor';
 const changeEvent = `${prefix}:change`;
 const saveEvent = `${prefix}:save`;
 
+const defaultEditorContents = `
+# h1
+
+## h2
+
+* bullet
+* bullet
+
+1. number
+2. number
+
+\`asdfa\`
+\`\`\`
+function(){
+  var a = 1;
+  return a++;
+}
+\`\`\`
+`;
+
+
 export function editorStore(state, emitter){
-  console.log("state",JSON.stringify(state.events.RENDER));
-  console.log("state.nav",state.events.NAVIGATE);
+  state.rawMd = defaultEditorContents;
   emitter.on(changeEvent, function(data){
-    console.log(changeEvent, data);
+    state.rawMd = data;
+    emitter.emit('render');
   });
   emitter.on(saveEvent, function(data){
-    console.log(saveEvent, data);
-    console.log("state.events",state.events);
-    console.log("state.events.RENDER",state.events.RENDER);
-    emitter.emit(state.events.RENDER);
+    emitter.emit('render');
   });
 }
 
 export default function (state, emit){
-  console.log("state.events",state.events);
+  const preview = html`<div></div>`;
+  preview.innerHTML = converter.makeHtml(state.rawMd);
   return html`
     ${flexbox({flexDirection: 'column'},
       flexbox(
         flexbox({ flexGrow: 1 },
-          codeMirrorElem({onChange, onSave})
+          codeMirrorElem({onChange, onSave, defaultEditorContents})
         ),
         flexbox({ flexGrow: 1 },
-          html`<div id="preview"></div>`
+          preview
         )
       )
     )}
   `;
 
   function onChange(instance) {
-    console.log('CHANGE');
     emit(changeEvent, instance.doc.getValue());
-    document.getElementById("preview").innerHTML = converter.makeHtml(instance.doc.getValue());
   };
 
   function onSave(instance){
