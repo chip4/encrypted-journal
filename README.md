@@ -3,7 +3,7 @@
 Will store encrypted markdown entries to IPFS. Currently shows a markdown editor and preview.
 
 ## UI
-Using styled-elements for static layout and easy styling
+Using [choo framework](https://github.com/choojs/choo) with [styled-elements](https://github.com/styled-components/styled-elements) for layoout/styling.
 
 ## Security
 // TODO None of this is implemented
