@@ -28,6 +28,7 @@ export default class Component extends Nanocomponent {
       mode: 'markdown',
       keyMap: 'vim',
       value: this.props.value,
+      viewportMargin: Infinity,
     });
     this.controller.on('change', debounce(this.props.onChange, 100));
     CodeMirror.commands.save = this.props.onSave;

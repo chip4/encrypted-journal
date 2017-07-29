@@ -1,4 +1,5 @@
 import html from '../externals/choo-html.js';
+import styled from '../externals/styled-elements.js';
 import flexbox from '../components/flexbox.js'
 import showdown from '../externals/showdown.js';
 import CodeMirrorElem from '../components/CodeMirrorElem.js';
@@ -49,30 +50,30 @@ export function editorStore(state, emitter){
 const codeMirror = new CodeMirrorElem();
 
 function preview(rawMd){
-  const preview = html`<div></div>`;
+  const preview = styled(html`<div></div>`)`
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  `;
   preview.innerHTML = converter.makeHtml(rawMd);
   return preview;
 }
 
 export default function (state, emit){
-  return html`
-    ${flexbox({flexDirection: 'column'},
-      flexbox(
-        flexbox({ flexBasis: '20%' },
-          editorHistoryList({
-            history: state.editorHistory,
-            handleClick: (entry) => emit(changeEvent, entry.fileContents)
-          })
-        ),
-        flexbox({ flexGrow: 2 },
-          codeMirror.render({onChange, onSave, value: state.rawMd})
-        ),
-        flexbox({ flexGrow: 2 },
-          preview(state.rawMd)
-        )
-      )
-    )}
-  `;
+  return flexbox(
+    flexbox({ flexBasis: '20%' },
+      editorHistoryList({
+        history: state.editorHistory,
+        handleClick: (entry) => emit(changeEvent, entry.fileContents)
+      })
+    ),
+    flexbox({ flexGrow: 2 },
+      codeMirror.render({onChange, onSave, value: state.rawMd})
+    ),
+    flexbox({ flexGrow: 2 },
+      preview(state.rawMd)
+    )
+  );
 
   function onChange(instance) {
     emit(changeEvent, instance.doc.getValue());
