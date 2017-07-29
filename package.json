@@ -13,6 +13,7 @@
     "choo-log": "^7.1.0",
     "codemirror": "^5.27.4",
     "lodash-es": "^4.17.4",
+    "nanocomponent": "^6.0.0-1",
     "showdown": "^1.7.1",
     "styled-elements": "^1.0.14",
     "yo-yo": "^1.4.1"

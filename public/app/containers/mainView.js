@@ -1,7 +1,7 @@
 import html from '../externals/choo-html.js';
 import flexbox from '../components/flexbox.js'
 import showdown from '../externals/showdown.js';
-import codeMirrorElem from '../components/codeMirrorElem.js';
+import CodeMirrorElem from '../components/CodeMirrorElem.js';
 import editorHistoryList from '../components/editorHistoryList.js'
 var converter = new showdown.Converter();
 
@@ -46,23 +46,29 @@ export function editorStore(state, emitter){
   });
 }
 
-export default function (state, emit){
+const codeMirror = new CodeMirrorElem();
+
+function preview(rawMd){
   const preview = html`<div></div>`;
-  preview.innerHTML = converter.makeHtml(state.rawMd);
+  preview.innerHTML = converter.makeHtml(rawMd);
+  return preview;
+}
+
+export default function (state, emit){
   return html`
     ${flexbox({flexDirection: 'column'},
       flexbox(
-        flexbox({ flexGrow: 1 },
+        flexbox({ flexBasis: '20%' },
           editorHistoryList({
             history: state.editorHistory,
-            handleClick: (entry) => console.log('handleclick', entry)
+            handleClick: (entry) => emit(changeEvent, entry.fileContents)
           })
         ),
         flexbox({ flexGrow: 2 },
-          codeMirrorElem({onChange, onSave, value: state.rawMd})
+          codeMirror.render({onChange, onSave, value: state.rawMd})
         ),
         flexbox({ flexGrow: 2 },
-          preview
+          preview(state.rawMd)
         )
       )
     )}
