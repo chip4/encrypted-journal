@@ -20,7 +20,11 @@ const swapEvent = `${prefix}:swap`;
 const changeEvent = `${prefix}:change`;
 
 function swapBtn(onclick){
-  return html`<button class="w3-button w3-bar-item" onclick=${onclick}><i class="material-icons">swap_horiz</i></button>`;
+  return html`
+  <button class="w3-button w3-bar-item" onclick=${onclick}>
+    <i class="material-icons" title="Swap between editor and viewer">swap_horiz</i>
+  </button>
+  `;
 }
 
 export function store(state, emitter){
@@ -45,7 +49,8 @@ export default function(state, emit) {
       ${flexbox(
         html`<button class="w3-button w3-bar-item"><i class="material-icons">menu</i></button>`,
         flexbox({flexGrow:1}),
-        html`<button class="w3-button w3-bar-item">${lockIcon}</button>`,
+        html`<button class="w3-button w3-bar-item"><i class="material-icons" title="Publish">cloud_upload</i></button>`,
+        html`<button class="w3-button w3-bar-item" title="Unencrypted">${lockIcon}</button>`,
         swapBtn(() => emit(swapEvent))
       )}
     </div>
