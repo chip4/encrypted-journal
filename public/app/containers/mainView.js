@@ -64,8 +64,14 @@ function preview(rawMd){
   return preview;
 }
 
+const wrapper = styled(flexbox)`
+height: 100%;
+width: 100%;
+overflow:hidden;
+`;
+
 export default function (state, emit){
-  return flexbox(
+  return wrapper(
     flexbox({ flexBasis: '20%' },
       editorHistoryList({
         history: state.editorHistory,
