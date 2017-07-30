@@ -12,6 +12,7 @@
     "choo": "^5.6.2",
     "choo-log": "^7.1.0",
     "codemirror": "^5.27.4",
+    "diff": "^3.3.0",
     "lodash-es": "^4.17.4",
     "nanocomponent": "^6.0.0-1",
     "showdown": "^1.7.1",
