@@ -10,7 +10,6 @@ export default class Component extends Nanocomponent {
   }
 
   createElement (props) {
-    console.log('here');
     this.props = props;
     if(!this.element){
       return styled(html`<div></div>`)`

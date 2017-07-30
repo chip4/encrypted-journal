@@ -6,5 +6,13 @@ import mainView, {editorStore} from './containers/mainView.js';
 var app = choo()
 app.use(log())
 app.use(editorStore)
+app.use(persistentStore)
 app.route('/', mainView)
 document.getElementById("app").appendChild(app.start());
+
+function persistentStore(state, emitter){
+  Object.assign(state, JSON.parse(window.localStorage.getItem('data')))
+  emitter.on('*', (data) => {
+    window.localStorage.setItem('data', JSON.stringify(state));
+  });
+}
