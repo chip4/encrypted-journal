@@ -6,12 +6,12 @@ export default function({history, handleClick}){
       handleClick(entry);
     }
     return html`
-      <li><a onclick=${onclick}>${entry.timestamp}</a></li>
+      <li onclick=${onclick}><a>${entry.timestamp}</a></li>
     `;
   }
   return html`
     <div>
-      <ul>
+      <ul class="w3-ul w3-hoverable">
         ${history.map(createLi)}
       </ul>
     </div>

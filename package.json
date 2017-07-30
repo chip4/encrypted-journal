@@ -16,6 +16,7 @@
     "nanocomponent": "^6.0.0-1",
     "showdown": "^1.7.1",
     "styled-elements": "^1.0.14",
+    "w3-css": "^4.0.4",
     "yo-yo": "^1.4.1"
   },
   "devDependencies": {

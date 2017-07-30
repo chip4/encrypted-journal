@@ -3056,6 +3056,10 @@ vm-browserify@~0.0.1:
   dependencies:
     indexof "0.0.1"
 
+w3-css@^4.0.4:
+  version "4.0.4"
+  resolved "https://registry.yarnpkg.com/w3-css/-/w3-css-4.0.4.tgz#2e4eeb36dc04de387dbd3bc8236ee0592cadfe86"
+
 wayfarer@^6.5.0:
   version "6.6.1"
   resolved "https://registry.yarnpkg.com/wayfarer/-/wayfarer-6.6.1.tgz#43acd67207b89b8def809236f7c5b8a57c62a482"
