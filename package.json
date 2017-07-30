@@ -17,6 +17,7 @@
     "material-design-icons": "^3.0.1",
     "moment": "^2.18.1",
     "nanocomponent": "^6.0.0-1",
+    "safe-buffer": "^5.1.1",
     "showdown": "^1.7.1",
     "styled-elements": "^1.0.14",
     "w3-css": "^4.0.4",
