@@ -1,6 +1,7 @@
 import html from '../externals/choo-html.js';
 import styled from '../externals/styled-elements.js';
 import JsDiff from '../externals/diff.js';
+import moment from '../externals/moment.js';
 
 const greenPlus = () => styled(html`<span>+</span>`)`
   color: green;
@@ -28,14 +29,14 @@ export default function({history, handleClick}){
       });
     return html`
       <li onclick=${onclick}>
-        ${entry.timestamp}<br>${linesChanged}
+        ${moment(entry.timestamp).fromNow()}<br>${linesChanged}
       </li>
     `;
   }
   return html`
     <div>
       <ul class="w3-ul w3-hoverable">
-        ${history.map(createLi)}
+        ${history.reverse().map(createLi)}
       </ul>
     </div>
   `;
