@@ -36,7 +36,8 @@ export default function({history, handleClick}){
   return html`
     <div>
       <ul class="w3-ul w3-hoverable">
-        ${history.reverse().map(createLi)}
+        <li>Last updated ${moment().format('HH:mm:ss')}</li>
+        ${[].concat(history).reverse().map(createLi)}
       </ul>
     </div>
   `;
