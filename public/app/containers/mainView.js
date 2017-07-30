@@ -39,6 +39,11 @@ export function editorStore(state, emitter){
     emitter.emit('render');
   });
   emitter.on(saveEvent, function(data){
+    const lastChange = state.editorHistory[state.editorHistory.length-1];
+    if(lastChange && lastChange.fileContents === data){
+      console.log("No Changes, Skip Save");
+      return;
+    }
     state.editorHistory.push({
       timestamp: new Date().toISOString(),
       fileContents: data
