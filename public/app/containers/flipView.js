@@ -3,32 +3,7 @@ import styled from '../externals/styled-elements.js';
 import flexbox from '../components/flexbox.js'
 import CodeMirrorElem from '../components/CodeMirrorElem.js';
 import preview from '../components/markdownPreview.js';
-import Ipfs from '../externals/ipfs.js';
-import Buffer from '../externals/safe-buffer.js';
-
-
-const repoPath = 'ipfs-' + Math.random()
-// Create an IPFS node
-const node = new Ipfs({
-  init: false,
-  start: false,
-  repo: repoPath
-})
-// Init the node
-node.init(handleInit)
-function handleInit(err) {
-  if (err) {
-    throw err
-  }
-  node.start(() => {
-    console.log('Online status: ', node.isOnline() ? 'online' : 'offline')
-    // You can write more code here to use it. Use methods like 
-    // node.files.add, node.files.get. See the API docs here:
-    // https://github.com/ipfs/interface-ipfs-core/tree/master/API
-  })
-}
-
-
+import * as ipfs from '../utils/ipfs.js';
 
 const codeMirror = new CodeMirrorElem();
 
@@ -93,8 +68,14 @@ export default function(state, emit) {
   };
 
   function onSave(instance){
-    node.files.add(Buffer.Buffer.from(instance.doc.getValue()), (err, res) => {
-      console.log("err",err, "res",res);
-    })
+    ipfs.start()
+      .then(() => ipfs.add(instance.doc.getValue()))
+      .then(ipfs.stop)
+      .then((stopTime) => {
+        console.log("stopTime",stopTime);
+      })
+      .catch((err) => {
+        console.log("save err", err);
+      });
   }
 }
