@@ -75,7 +75,6 @@ export default function(state, emit) {
   function onSave(instance){
     ipfs.start()
       .then(() => ipfs.add(instance.doc.getValue()))
-      .then(ipfs.stop)
       .then((stopTime) => {
         console.log("stopTime",stopTime);
       })

@@ -71,9 +71,14 @@ function registerObserver(callback){
   return () => observers.splice(observers.indexOf(callback), 1);
 }
 
+function isOnline(){
+  return node.isOnline();
+}
+
 export {
   start,
   stop,
+  isOnline,
   add,
   registerObserver,
   events,
