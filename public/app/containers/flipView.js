@@ -3,6 +3,7 @@ import styled from '../externals/styled-elements.js';
 import flexbox from '../components/flexbox.js'
 import CodeMirrorElem from '../components/CodeMirrorElem.js';
 import preview from '../components/markdownPreview.js';
+import ipfsController, { store as ipfsStore } from '../containers/ipfsController.js';
 import * as ipfs from '../utils/ipfs.js';
 
 const codeMirror = new CodeMirrorElem();
@@ -29,6 +30,9 @@ function swapBtn(onclick){
 }
 
 export function store(state, emitter){
+  state.ipfs = {};
+  ipfsStore(state.ipfs, emitter);
+
   state.editorActive = true;
   state.editorContents = '';
   emitter.on(swapEvent, () => {
@@ -50,6 +54,7 @@ export default function(state, emit) {
       ${flexbox(
         html`<button class="w3-button w3-bar-item"><i class="material-icons">menu</i></button>`,
         flexbox({flexGrow:1}),
+        ipfsController(state.ipfs),
         html`<button class="w3-button w3-bar-item"><i class="material-icons" title="Publish">cloud_upload</i></button>`,
         html`<button class="w3-button w3-bar-item" title="Unencrypted">${lockIcon}</button>`,
         swapBtn(() => emit(swapEvent))
