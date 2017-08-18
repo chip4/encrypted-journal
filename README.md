@@ -18,3 +18,4 @@ All static assets to be hosted on ipfs. Using [ipscend](https://github.com/diasd
 * keep list of all posted entries
 * publish markdown entries to ipfs using js-ipfs in the browser
 * encryption of notes using one-time keys
+* refactor the w3schools toggle switch into its own module
