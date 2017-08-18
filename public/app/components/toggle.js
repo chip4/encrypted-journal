@@ -13,8 +13,8 @@ const switchElem = ({scale = 1}, ...children) => styled(html`
   height: ${scale*34}px;
 `;
 
-const inputElem = ({scale = 1}) => styled(html`
-  <input type="checkbox">
+const inputElem = ({scale = 1, value = false, handleToggle}) => styled(html`
+  <input type="checkbox" onclick=${handleToggle} ${(value)?'checked':''} />
 `)`
   display:none;
   &:checked + .slider {
@@ -69,12 +69,18 @@ const squareToggle = html`
     <span class="slider"></span>
   </label>
 `;
-const roundedToggle = ({scale = 1}) => html`
-  ${switchElem({scale},
-    inputElem({scale}),
-    sliderElem({scale}),
-  )}
-`;
+const roundedToggle = ({scale = 1, handleToggle, value}) => {
+  const toggleFunc = (event) => {
+    handleToggle(event.target.checked);
+    return false;
+  };
+  return html`
+    ${switchElem({scale},
+      inputElem({scale, handleToggle: toggleFunc, value}),
+      sliderElem({scale}),
+    )}
+  `;
+};
 
 export {
   squareToggle,

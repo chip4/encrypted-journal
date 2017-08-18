@@ -10,14 +10,17 @@ const newToggle = styled(toggle)`
   color: blue;
 `;
 
-console.log("toggle",toggle);//, toggle({scale: 1}), newToggle());
-
-//TODO hook up toggle
 export default function render(state, emit){
   return html`
     <button class="w3-button w3-bar-item">
-      ${toggle({scale: .6})}
+      ${toggle({scale: .6, handleToggle, value: state.value})}
       <img src="/assets/ipfs-logo-vector-white-outline.svg" height="24px" width="24px" />
     </button>
   `;
+
+  // TODO run this through the store to do ipfs management. Make sure toggle state reflects ipfs status.
+  function handleToggle(value){
+    state.value = value;
+    emit('render');
+  }
 }

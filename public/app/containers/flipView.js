@@ -54,7 +54,7 @@ export default function(state, emit) {
       ${flexbox(
         html`<button class="w3-button w3-bar-item"><i class="material-icons">menu</i></button>`,
         flexbox({flexGrow:1}),
-        ipfsController(state.ipfs),
+        ipfsController(state.ipfs, emit),
         html`<button class="w3-button w3-bar-item"><i class="material-icons" title="Publish">cloud_upload</i></button>`,
         html`<button class="w3-button w3-bar-item" title="Unencrypted">${lockIcon}</button>`,
         swapBtn(() => emit(swapEvent))
