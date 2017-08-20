@@ -7,9 +7,10 @@ import flipView, {store as flipStore} from './containers/flipView.js';
 var app = choo()
 app.use(log())
 app.use(editorStore)
-app.route('/', mainView)
+app.route('/history-view', mainView)
 app.use(flipStore)
 app.route('/flip-view', flipView)
+app.route('*', flipView)
 app.use(persistentStore)
 document.getElementById("app").appendChild(app.start());
 

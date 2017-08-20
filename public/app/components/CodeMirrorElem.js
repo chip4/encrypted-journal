@@ -2,7 +2,7 @@ import Nanocomponent from '../externals/nanocomponent.js';
 import html from '../externals/choo-html.js';
 import styled from '../externals/styled-elements.js';
 import CodeMirror from '../externals/CodeMirror.js';
-import debounce from '/vendor/lodash-es/debounce.js';
+import debounce from '../../vendor/lodash-es/debounce.js';
 
 export default class Component extends Nanocomponent {
   constructor () {

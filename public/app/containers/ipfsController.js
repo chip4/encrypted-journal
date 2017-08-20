@@ -15,11 +15,9 @@ export function store(state, emitter) {
   emitter.on(ipfs.events.started, () => emitter.emit('render'));
   emitter.on(events.ifpsToggle, (value) => {
     if(value === true){
-      ipfs.start()
-        .then(() => emitter.emit('render'))
+      ipfs.start();
     }else{
-      ipfs.stop()
-        .then(() => emitter.emit('render'))
+      ipfs.stop();
     }
   });
 }
@@ -32,7 +30,7 @@ export default function render(state, emit){
   return html`
     <button class="w3-button w3-bar-item" onclick=${() => handleToggle(!ipfs.isOnline())}>
       ${toggle({scale: .6, handleToggle, value: ipfs.isOnline()})}
-      <img src="/assets/ipfs-logo-vector-white-outline.svg" height="24px" width="24px" />
+      <img src="assets/ipfs-logo-vector-white-outline.svg" height="24px" width="24px" />
     </button>
   `;
 
